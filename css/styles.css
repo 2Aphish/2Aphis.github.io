@@ -1,0 +1,43 @@
+body { margin: 60px auto; width: 80%;
+  background-color: #ffffff;
+  font-family: 'Helvetica', 'Helvetica', 'Sans-Serif'; 
+}
+
+a { text-decoration: none; color: #000000; }
+a:hover { text-decoration: underline; }
+/* look into customizing underline https://css-tricks.com/styling-underlines-web/ */
+
+p, ul { font-size: 1.2em; line-height: 1.4em; color: #000; }
+
+
+nav ul, footer ul { font-size: 1em; font-family: 'Helvetica', 'Helvetica', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
+nav ul li, footer ul li { display: inline; margin-right: 20px; }
+
+
+ul.category, li.category {
+	display: inline;
+	margin-right: 2%;
+}
+
+/* work out code-block background*/
+code {
+  padding: 0.07em .25em;
+  font-size: 85%;
+  color: #161213;
+  background-color: #ededed;
+  border-radius: 2px;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+/*
+.code-block {
+  padding: .25em .5em;
+  font-size: 85%;
+  font-color: green;
+  background-color: blue;
+}
+*/
+.flag, .command{
+	 font-family: Menlo, Monaco, "Courier New", monospace;
+}
+table {border: none;}
