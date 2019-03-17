@@ -3,9 +3,32 @@ layout: default
 title: 3D Printer Fixes
 ---
 
+
 <h1>3D Printer Fixes - Z-Offset</h1>
 
-<p>Sometimes 3D printers need slight adjustments to work at their absolut best. Working with a Luzbot Mini this weekend I noticed skirt of the print was a little squished. For those who aren't familar with 3D printing the skirt is the line drawn around the 3D printing area that helps establish the fillament flow. the skirt also allows you to assess the settings before launching into the actual print (i.e. if the head isn't extruding or if an offset is wrong). In this case, the squished skirt indicated that the Z-Offset needed some adjustment.</p>
-<p>In the long run, this is a minor setting set-back as it does not affect other aspects of the 3D print beyond the first layer; the bottom of your print will just have a little lip. With that said I have never calibrated the Z-Offset on a Luzbot Mini 3D printer before and thought it would be a great opportunity to learn.</p>
-<h3>Z-Offset</h3>
-<p>When a 3D printer starts it does a quick calibration to understand where the 0 position is. For the Luzbot Mini it touches all of the </p>
+<p>Sometimes 3D printers need slight adjustments to work at their absolute best. Working with a Luzbot Mini this weekend I noticed skirt of the print was a little squished. This meant the z-offset of the printer needed to be adjusted.</p>
+
+<p>It is also possible to have a floating skirt where the filament doesn’t appear to be touching or adhering to the bed. This definitely warrants a z-offset adjustment.</p>
+
+<h3>What is the z-offset?</h3>
+<p>When a 3D printer starts it does a quick calibration to level the bed and understand where the zero position is. For the Luzbot Mini it touches the four washers at each corner of the bed. The height of the leveled washers is zero. The z-offset is the distance below zero where the head starts; it will be a negative number. Smaller offsets (more negative) will move the nozzle closer to the bed; larger offsets (closer to zero) will move the nozzle aways from the print bed.</p>
+
+<p>An offset that is too large (squished) is a minor setting set-back as it does not affect other aspects of the 3D print beyond the first layer; the bottom of your print will have a little lip. However, with an offset that is too small (floating) your print may not properly adhere to the bed which can cause all sorts of problems down the line. In this case it is imperative that you adjust the offset before launching into the print.</p>
+
+<h3>What is a skirt?</h3>
+<p>A skirt is a line drawn around the 3D printing area that helps establish the filament flow. It also allows you to assess the settings before launching into the actual print (i.e. if the head isn't extruding or if the offset is wrong). In this case, the squished skirt indicated that the z-offset needed to be larger.</p>
+
+<h3>The process:</h3>
+
+<p>I have never calibrated the z-offset on a Luzbot Mini 3D printer before and thought this would be a great opportunity to learn. While I used the <a href="https://ohai.lulzbot.com/project/z-axis-offset-adjustment-LulzBot-Mini/">Z-Offset Adjustment Guide form Ultimaker Cura</a>, I had a few further questions about the z-offset which I tried to explain here.</p>
+<p>You will be modifying the g-code instructions of the printer. Connect to the printer using Cura and open the Console. There are two commands you need to know:</p>
+
+<img src="/images/adjust-Z_130.PNG" style="float:right;">
+
+<li>
+	<ul style="list-style-type:none;"><strong>M851</strong>  Reports (echos) the z-offest (in millimeters). It can also also be used to set the z-offest and to check that the proper z-offset is stored after the change.</ul>
+	<ul style="list-style-type:none;"><strong>M851: Z-X.XX</strong>  Changes the z-offset to -X.XX. It will then echo the offset to the console. Start with small adjustments to move the nozzle up if your skirt is squished. If you are adjusting the nozzle down  be careful to not move too quickly as you can damage the bed and/or the nozzle of the extruder. Note: If you wanted to adjust the nozzle to a point above the washers (the zero mark) for any reason you would do M851 ZX.XX.</ul>
+	<ul style="list-style-type:none;"><strong>M500</strong>  Stores the settings. You are now ready to test your changes.</ul>
+</li>
+
+<p>One thing I did not do was test to see if you can adjust the z-offset during the print. If you can, I will add a .stl or .gcode file that you can use to compare different offsets for the first layer of your print.</p>
